@@ -29,7 +29,7 @@ export const education: Education[] = [
     school: "École Polytechnique & KTH Royal Institute of Technology",
     period: "2016 — 2018",
     note: "EIT InnoEnergy Scholar",
-    logo: "/logos/polytechnique-kth.svg",
+    logos: ["/logos/polytechnique.svg", "/logos/kth.svg"],
     color: "#002A5C",
   },
   {
