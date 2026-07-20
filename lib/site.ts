@@ -8,7 +8,9 @@ export const site = {
   about: [
     "I'm a technical manager and engineering PhD with 10+ years at the intersection of sustainable technology, engineering, and product. At Siemens Switzerland I lead cross-functional programs across Product, Engineering, and Marketing — most recently driving a +50% adoption rate of eco-design across the Automation & Fire Safety portfolio, a +20% upstream Scope 3 reduction, and product-as-a-service pilots that cut resource intensity by 17%.",
     "Concurrently, I own the product roadmap for a Smart Asset Management SaaS — bridging service operations and asset management across 50+ projects in Germany and the US, enabling +5M EUR in annual service revenue. I lean heavily on GenAI and LLM tools in my own workflow: competitor-intelligence bots, vibe-coded sustainability MVPs, and data automation.",
-    "Before Siemens I spent four years at ETH Zürich on a PhD in environmental engineering, leading a 10-person team that built environmental data models for 200+ electronics and ICT products. That work contributed research perspectives to the UN Global Resources Outlook 2024 and was supported by a Marie Skłodowska-Curie fellowship. I'm currently a part-time MBA candidate at Imperial College London (Dean's Impact Scholarship), sharpening the strategy and product skills to take this work further.",
+    "Before Siemens I spent four years between ETH Zürich and Empa, a research institute of the ETH Domain. My PhD focused on life cycle assessment of circular materials and mine waste valorization; my PostDoc built LCA datasets for the ICT sector. I led a 10-person cross-functional team, supervised Bachelor's and Master's theses, and taught as a TA. That work contributed research perspectives to the UN Global Resources Outlook 2024 and is cited in WEF and UNEP publications — supported by a Marie Skłodowska-Curie fellowship.",
+    "Earlier in my career I worked across consulting, industry, and international development. As an engineer at the World Bank I co-authored a CCUS implementation report for Indonesia. At Dow I launched a sustainable-adhesives go-to-market plan that delivered $4M+ revenue growth across South-East Asia. And at Wienerberger I ran on-site LCA at a Belgian plant, quantifying 10–30% carbon reduction of waste-derived bricks — published in the Journal of Cleaner Production. Various roles, multiple continents, one through-line: using data to make sustainability decisions more rigorous.",
+    "I'm currently a part-time MBA candidate at Imperial College London on a Dean's Impact Scholarship, sharpening the strategy and product skills to take this work further.",
   ],
   socials: [
     {
@@ -35,6 +37,9 @@ export const site = {
       "TensorFlow / PyTorch",
       "scikit-learn",
       "MLflow",
+      "LangChain",
+      "Multi-Agent",
+      "RAG",
       "Claude Code / GitHub Copilot",
       "Tableau / Power BI",
       "Streamlit / Gradio",
