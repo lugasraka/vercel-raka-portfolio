@@ -2,6 +2,19 @@ import type { Project } from "@/lib/types";
 
 export const projects: Project[] = [
   {
+    slug: "transformer-decarb-manager",
+    title: "Transformer Decarbonization Manager",
+    summary:
+      "Streamlit app for evaluating and simulating CO₂ across the transformer lifecycle. 4 modules: TCO & Carbon ROI, Circularity & EOL, Portfolio CO₂ Simulator with constraint-aware design advisor and Monte Carlo uncertainty, and GHG Scope 1/2/3 reporting.",
+    year: "2025 — 2026",
+    role: "AI PM & developer",
+    tags: ["Python", "Streamlit", "Monte Carlo", "LCA", "Scope 3", "PRD"],
+    kind: "ai-pm",
+    liveUrl: "https://co2-calculator-prototype-transformer.streamlit.app/",
+    githubUrl: "https://github.com/lugasraka/CO2-calculator-prototype-transformer",
+    body: "",
+  },
+  {
     slug: "carbontrace-ai",
     title: "CarbonTrace AI — Scope 3 Emission Analytics",
     summary:
