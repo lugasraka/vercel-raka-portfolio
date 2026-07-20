@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
 import { SectionHeader } from "@/components/section-header";
@@ -8,6 +9,72 @@ import {
   awards,
   competitions,
 } from "@/lib/education";
+import type { Education as EducationType } from "@/lib/types";
+
+function DegreeLogoSlot({ entry }: { entry: EducationType }) {
+  if (entry.logos && entry.logos.length > 0) {
+    return (
+      <div className="flex gap-1.5">
+        {entry.logos.map((l) => (
+          <div
+            key={l}
+            className="flex h-10 w-10 items-center justify-center rounded-md bg-surface ring-1 ring-border"
+          >
+            <Image
+              src={l}
+              alt=""
+              width={28}
+              height={28}
+              className="h-7 w-7 object-contain"
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
+  if (entry.logo) {
+    return (
+      <div className="flex h-10 w-10 items-center justify-center rounded-md bg-surface ring-1 ring-border">
+        <Image
+          src={entry.logo}
+          alt=""
+          width={28}
+          height={28}
+          className="h-7 w-7 object-contain"
+        />
+      </div>
+    );
+  }
+  return (
+    <div className="flex h-10 w-10 items-center justify-center rounded-md bg-foreground/5 font-display text-sm font-medium text-foreground/70">
+      {entry.school.charAt(0)}
+    </div>
+  );
+}
+
+function DegreeEntry({ entry }: { entry: EducationType }) {
+  return (
+    <div className="flex gap-4">
+      <div className="flex w-14 shrink-0 items-start justify-center pt-1">
+        <DegreeLogoSlot entry={entry} />
+      </div>
+      <div className="min-w-0 flex-1">
+        <p className="font-accent text-xs italic text-foreground/50">
+          {entry.period}
+        </p>
+        <p className="mt-1 font-display text-base font-medium leading-snug text-foreground">
+          {entry.degree}, {entry.field}
+        </p>
+        <p className="text-sm text-foreground/70">{entry.school}</p>
+        {entry.note && (
+          <Badge tone="accent" className="mt-2">
+            {entry.note}
+          </Badge>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export function Education() {
   return (
@@ -25,23 +92,10 @@ export function Education() {
               <h3 className="font-display text-sm font-medium uppercase tracking-[0.2em] text-foreground/60">
                 Degrees
               </h3>
-              <Stagger className="mt-5 space-y-5" stagger={0.06}>
+              <Stagger className="mt-5 space-y-6" stagger={0.06}>
                 {education.map((e) => (
                   <StaggerItem key={`${e.school}-${e.degree}`}>
-                    <div>
-                      <p className="font-accent text-xs italic text-foreground/50">
-                        {e.period}
-                      </p>
-                      <p className="mt-1 font-display text-base font-medium leading-snug text-foreground">
-                        {e.degree}, {e.field}
-                      </p>
-                      <p className="text-sm text-foreground/70">{e.school}</p>
-                      {e.note && (
-                        <Badge tone="accent" className="mt-2">
-                          {e.note}
-                        </Badge>
-                      )}
-                    </div>
+                    <DegreeEntry entry={e} />
                   </StaggerItem>
                 ))}
               </Stagger>

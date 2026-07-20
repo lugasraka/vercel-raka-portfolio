@@ -31,6 +31,9 @@ export type Education = {
   school: string;
   period: string;
   note?: string;
+  logo?: string;
+  logos?: string[];
+  color?: string;
 };
 
 export type Certification = {

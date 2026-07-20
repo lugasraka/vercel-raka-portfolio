@@ -12,12 +12,16 @@ export const education: Education[] = [
     school: "Imperial College London",
     period: "2026 — 2028",
     note: "Dean's Impact Scholarship",
+    logo: "/logos/imperial.svg",
+    color: "#002147",
   },
   {
     degree: "PhD / Dr. sc.",
     field: "Environmental Engineering",
     school: "ETH Zürich",
     period: "2019 — 2022",
+    logo: "/logos/eth.svg",
+    color: "#1F407A",
   },
   {
     degree: "MSc (joint)",
@@ -25,12 +29,16 @@ export const education: Education[] = [
     school: "École Polytechnique & KTH Royal Institute of Technology",
     period: "2016 — 2018",
     note: "EIT InnoEnergy Scholar",
+    logos: ["/logos/polytechnique.svg", "/logos/kth.svg"],
+    color: "#002A5C",
   },
   {
     degree: "BSc",
     field: "Industrial Technology / Chemical Engineering",
     school: "Institut Teknologi Bandung (ITB)",
     period: "2010 — 2014",
+    logo: "/logos/itb.svg",
+    color: "#0B5C2E",
   },
 ];
 

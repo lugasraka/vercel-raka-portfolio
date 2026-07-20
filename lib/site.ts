@@ -66,5 +66,12 @@ export const site = {
       "Hugging Face",
       "Figma",
     ],
+    Languages: [
+      "French",
+      "English",
+      "Malay",
+      "German",
+      "Indonesian",
+    ],
   },
 };
