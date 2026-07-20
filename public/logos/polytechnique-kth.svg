@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 32" fill="none">
+  <text x="16" y="22" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="700" fill="#002A5C">X</text>
+  <line x1="50" y1="6" x2="50" y2="26" stroke="#1F407A" stroke-width="0.5" opacity="0.3"/>
+  <text x="78" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#1954A6" letter-spacing="0.5">KTH</text>
+</svg>

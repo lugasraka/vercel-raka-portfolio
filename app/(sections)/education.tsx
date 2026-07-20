@@ -12,35 +12,24 @@ import {
 import type { Education as EducationType } from "@/lib/types";
 
 function DegreeLogoSlot({ entry }: { entry: EducationType }) {
-  if (entry.logos && entry.logos.length > 0) {
-    return (
-      <div className="flex gap-1.5">
-        {entry.logos.map((l) => (
-          <div
-            key={l}
-            className="flex h-10 w-10 items-center justify-center rounded-md bg-surface ring-1 ring-border"
-          >
-            <Image
-              src={l}
-              alt=""
-              width={28}
-              height={28}
-              className="h-7 w-7 object-contain"
-            />
-          </div>
-        ))}
-      </div>
-    );
-  }
   if (entry.logo) {
+    const isJointLogo = entry.logo.includes("polytechnique-kth");
     return (
-      <div className="flex h-10 w-10 items-center justify-center rounded-md bg-surface ring-1 ring-border">
+      <div
+        className={
+          isJointLogo
+            ? "flex h-10 w-20 items-center justify-center rounded-md bg-surface ring-1 ring-border"
+            : "flex h-10 w-10 items-center justify-center rounded-md bg-surface ring-1 ring-border"
+        }
+      >
         <Image
           src={entry.logo}
           alt=""
-          width={28}
-          height={28}
-          className="h-7 w-7 object-contain"
+          width={isJointLogo ? 72 : 28}
+          height={isJointLogo ? 24 : 28}
+          className={
+            isJointLogo ? "h-7 w-auto object-contain" : "h-7 w-7 object-contain"
+          }
         />
       </div>
     );
