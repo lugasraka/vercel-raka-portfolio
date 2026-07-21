@@ -67,7 +67,7 @@ function ProjectCard({ project }: { project: ProjectType }) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 font-medium text-accent transition-opacity hover:opacity-80"
               >
-                Live demo
+                {project.kind === "research" ? "Read more" : "Live demo"}
                 <span aria-hidden>↗</span>
               </a>
             )}
@@ -93,11 +93,13 @@ function ProjectGroup({
   eyebrow,
   title,
   description,
+  topLinks,
   items,
 }: {
   eyebrow: string;
   title: string;
   description?: string;
+  topLinks?: Array<{ label: string; href: string }>;
   items: ProjectType[];
 }) {
   return (
@@ -114,6 +116,22 @@ function ProjectGroup({
             <p className="mt-3 text-base leading-relaxed text-foreground/70 text-pretty">
               {description}
             </p>
+          )}
+          {topLinks && topLinks.length > 0 && (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {topLinks.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-foreground/20 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-foreground transition-all hover:border-foreground/60 hover:bg-foreground hover:text-background"
+                >
+                  {l.label}
+                  <span aria-hidden>↗</span>
+                </a>
+              ))}
+            </div>
           )}
         </div>
       </Reveal>
@@ -158,6 +176,12 @@ export function Projects({ items }: ProjectsProps = {}) {
           eyebrow="Research & Consulting"
           title="Selected case studies."
           description="Applied research, techno-economic analysis, and consulting engagements across climate, energy, and materials."
+          topLinks={[
+            {
+              label: "Google Scholar",
+              href: "https://scholar.google.com/citations?user=ExZmYHgAAAAJ&hl=en",
+            },
+          ]}
           items={research}
         />
       </div>

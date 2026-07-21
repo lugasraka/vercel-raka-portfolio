@@ -96,6 +96,8 @@ export const projects: Project[] = [
     role: "PhD researcher & project manager",
     tags: ["LCA", "Industrial Ecology", "Circular Materials"],
     kind: "research",
+    liveUrl:
+      "https://www.research-collection.ethz.ch/entities/publication/7572dd64-147c-49d5-8f82-2b6b9a9db9f1",
     body: "",
   },
   {
@@ -133,6 +135,7 @@ export const projects: Project[] = [
     role: "Postdoctoral researcher",
     tags: ["LCA", "ICT", "Data Centers"],
     kind: "research",
+    liveUrl: "https://nexus.openlca.org/database/BAFU",
     body: "",
   },
 ];

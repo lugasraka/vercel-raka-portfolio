@@ -9,6 +9,7 @@ export type Project = {
   liveUrl?: string;
   githubUrl?: string;
   image?: string;
+  topLinks?: Array<{ label: string; href: string }>;
   body: string;
 };
 

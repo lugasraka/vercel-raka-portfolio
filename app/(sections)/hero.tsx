@@ -47,7 +47,7 @@ export function Hero() {
                   {" "}
                   turning complex data
                 </span>{" "}
-                into product decisions at Siemens, from{" "}
+                into product decisions, based in{" "}
                 {site.location.split(",")[0]}.
               </h2>
             </Reveal>
