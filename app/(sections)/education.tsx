@@ -14,7 +14,7 @@ import type { Education as EducationType } from "@/lib/types";
 function DegreeLogoSlot({ entry }: { entry: EducationType }) {
   if (entry.logos && entry.logos.length > 0) {
     return (
-      <div className="flex h-10 w-24 items-center justify-center gap-1 rounded-md bg-surface ring-1 ring-border">
+      <div className="flex h-10 w-24 items-center justify-center gap-1 rounded-md bg-surface ring-1 ring-border dark:bg-white">
         {entry.logos.map((l) => (
           <div
             key={l}
@@ -34,7 +34,7 @@ function DegreeLogoSlot({ entry }: { entry: EducationType }) {
   }
   if (entry.logo) {
     return (
-      <div className="flex h-10 w-10 items-center justify-center rounded-md bg-surface ring-1 ring-border">
+      <div className="flex h-10 w-10 items-center justify-center rounded-md bg-surface ring-1 ring-border dark:bg-white">
         <Image
           src={entry.logo}
           alt=""

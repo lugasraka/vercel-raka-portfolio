@@ -26,7 +26,7 @@ function Highlights({ items }: { items: string[] }) {
 function TimelineEntry({ item }: { item: ExperienceType }) {
   return (
     <div className="relative z-10 flex w-48 shrink-0 flex-col items-center md:w-52">
-      <div className="relative flex h-[72px] w-[72px] items-center justify-center rounded-full bg-surface shadow-sm ring-1 ring-border transition-transform duration-300 hover:scale-105">
+      <div className="relative flex h-[72px] w-[72px] items-center justify-center rounded-full bg-surface shadow-sm ring-1 ring-border transition-transform duration-300 hover:scale-105 dark:bg-white">
         {item.logo ? (
           <Image
             src={item.logo}
@@ -80,7 +80,7 @@ function MobileTimelineEntry({ item }: { item: ExperienceType }) {
   return (
     <div className="flex gap-4">
       <div className="relative shrink-0">
-        <div className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-surface shadow-sm ring-1 ring-border">
+        <div className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-surface shadow-sm ring-1 ring-border dark:bg-white">
           {item.logo ? (
             <Image
               src={item.logo}
