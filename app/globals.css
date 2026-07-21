@@ -12,6 +12,18 @@
   --form-bg: #f0e4c7;
 }
 
+.dark {
+  --background: #0f1924;
+  --foreground: #f5f1ea;
+  --muted: #9ca3af;
+  --surface: #1a2332;
+  --border: #2a3445;
+  --accent: #d4b87a;
+  --accent-soft: #b8924a;
+  --deep: #0a1218;
+  --form-bg: #1a2332;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

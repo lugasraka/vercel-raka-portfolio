@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const links = [
   { href: "#about", label: "About" },
@@ -56,6 +57,7 @@ export function Nav() {
           >
             Get in touch
           </a>
+          <ThemeToggle />
         </nav>
 
         <button
