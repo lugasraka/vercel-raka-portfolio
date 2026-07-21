@@ -8,7 +8,7 @@ import type {
 export const education: Education[] = [
   {
     degree: "MBA",
-    field: "Business Administration",
+    field: "Data Science · Analytics · Operations",
     school: "Imperial College London",
     period: "2026 — 2028",
     logo: "/logos/imperial.svg",
