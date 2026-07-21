@@ -4,7 +4,7 @@ export const site = {
   location: "Zürich, Switzerland",
   email: "lugasraka@outlook.com",
   tagline:
-    "Driving digital tools and sustainability programs at Siemens — turning complex environmental data into product decisions.",
+    "Currently driving digital tools and sustainability programs at Siemens — turning energy and environmental data into product and program decisions.",
   about: [
     "I'm a technical manager and engineering PhD with 10+ years at the intersection of sustainable technology, engineering, and product. At Siemens Switzerland I lead cross-functional programs across Product, Engineering, and Marketing — most recently driving a +50% adoption rate of eco-design across the Automation & Fire Safety portfolio, a +20% upstream Scope 3 reduction, and product-as-a-service pilots that cut resource intensity by 17%.",
     "Concurrently, I own the product roadmap for a Smart Asset Management SaaS — bridging service operations and asset management across 50+ projects in Germany and the US, enabling +5M EUR in annual service revenue. I lean heavily on GenAI and LLM tools in my own workflow: competitor-intelligence bots, vibe-coded sustainability MVPs, and data automation.",
@@ -40,7 +40,7 @@ export const site = {
       "LangChain",
       "Multi-Agent",
       "RAG",
-      "Claude Code / GitHub Copilot",
+      "Claude Code / GitHub Copilot / Codex",
       "Tableau / Power BI",
       "Streamlit / Gradio",
     ],
@@ -49,7 +49,7 @@ export const site = {
       "Agile / Scrum (CSPO, CSM)",
       "Stakeholder & Cross-Functional Leadership",
       "Workshop Facilitation",
-      "Jira / Confluence",
+      "User Research & Design Thinking",
     ],
     "Sustainability & Energy": [
       "Life Cycle Assessment",

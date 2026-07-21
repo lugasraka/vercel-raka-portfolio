@@ -13,7 +13,7 @@ export function About() {
           eyebrow="About"
           title="A short version of the long story."
         />
-
+  
         <div className="mt-16 grid gap-12 md:grid-cols-12 md:gap-16">
           <Reveal className="md:col-span-7" delay={0.1}>
             <div className="space-y-6 text-lg leading-relaxed text-foreground/80 text-pretty">
