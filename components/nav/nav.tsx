@@ -60,28 +60,31 @@ export function Nav() {
           <ThemeToggle />
         </nav>
 
-        <button
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          onClick={() => setOpen((o) => !o)}
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-foreground/15 md:hidden"
-        >
-          <span className="sr-only">Menu</span>
-          <div className="flex flex-col gap-1.5">
-            <span
-              className={cn(
-                "h-px w-4 bg-foreground transition-transform",
-                open && "translate-y-[3px] rotate-45"
-              )}
-            />
-            <span
-              className={cn(
-                "h-px w-4 bg-foreground transition-transform",
-                open && "-translate-y-[3px] -rotate-45"
-              )}
-            />
-          </div>
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle />
+          <button
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            onClick={() => setOpen((o) => !o)}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-foreground/15"
+          >
+            <span className="sr-only">Menu</span>
+            <div className="flex flex-col gap-1.5">
+              <span
+                className={cn(
+                  "h-px w-4 bg-foreground transition-transform",
+                  open && "translate-y-[3px] rotate-45"
+                )}
+              />
+              <span
+                className={cn(
+                  "h-px w-4 bg-foreground transition-transform",
+                  open && "-translate-y-[3px] -rotate-45"
+                )}
+              />
+            </div>
+          </button>
+        </div>
       </div>
 
       {open && (
