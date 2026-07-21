@@ -32,7 +32,7 @@ export const education: Education[] = [
   },
   {
     degree: "BSc",
-    field: "Industrial Technology / Chemical Engineering",
+    field: "Chemical Engineering · Industrial Technology",
     school: "Institut Teknologi Bandung (ITB)",
     period: "2010 — 2014",
     logo: "/logos/itb.svg",

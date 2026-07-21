@@ -41,7 +41,7 @@ export const experience: Experience[] = [
   {
     slug: "kth-researcher",
     role: "Project Researcher",
-    company: "KTH Royal Institute",
+    company: "KTH Royal Institute of Technology",
     period: "2017 — 2018",
     location: "Stockholm, Sweden",
     description:
