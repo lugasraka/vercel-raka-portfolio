@@ -30,17 +30,24 @@ function Highlights({ items }: { items: string[] }) {
 }
 
 function TimelineEntry({ item }: { item: ExperienceType }) {
+  const isWordmark = item.logoDisplay === "wordmark";
   return (
     <div className="journey-entry relative z-10 flex w-48 shrink-0 flex-col items-center md:w-52">
-      <div className="journey-logo relative flex h-[72px] w-[72px] items-center justify-center rounded-full bg-surface shadow-sm ring-1 ring-border transition-all duration-500 dark:bg-white">
+      <div
+        className={`journey-logo relative flex h-[72px] items-center justify-center bg-white shadow-sm ring-1 ring-black/10 transition-all duration-500 dark:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.8)] ${
+          isWordmark ? "w-[120px] rounded-xl px-3" : "w-[72px] rounded-full p-3"
+        }`}
+      >
         {item.logo ? (
-          <Image
-            src={item.logo}
-            alt={`${item.company} logo`}
-            width={48}
-            height={48}
-            className="h-10 w-10 object-contain"
-          />
+          <div className={isWordmark ? "relative h-10 w-full" : "relative h-12 w-12"}>
+            <Image
+              src={item.logo}
+              alt={`${item.company} logo`}
+              fill
+              sizes={isWordmark ? "96px" : "48px"}
+              className="object-contain"
+            />
+          </div>
         ) : (
           <span className="font-display text-lg font-medium text-foreground">
             {item.company.charAt(0)}
@@ -83,18 +90,25 @@ function MobileHighlights({ items }: { items: string[] }) {
 }
 
 function MobileTimelineEntry({ item }: { item: ExperienceType }) {
+  const isWordmark = item.logoDisplay === "wordmark";
   return (
     <div className="journey-entry flex gap-4">
       <div className="relative shrink-0">
-        <div className="journey-logo flex h-[72px] w-[72px] items-center justify-center rounded-full bg-surface shadow-sm ring-1 ring-border transition-all duration-500 dark:bg-white">
+        <div
+          className={`journey-logo flex h-[72px] items-center justify-center bg-white shadow-sm ring-1 ring-black/10 transition-all duration-500 dark:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.8)] ${
+            isWordmark ? "w-24 rounded-xl px-2.5" : "w-[72px] rounded-full p-3"
+          }`}
+        >
           {item.logo ? (
-            <Image
-              src={item.logo}
-              alt={`${item.company} logo`}
-              width={48}
-              height={48}
-              className="h-10 w-10 object-contain"
-            />
+            <div className={isWordmark ? "relative h-9 w-full" : "relative h-12 w-12"}>
+              <Image
+                src={item.logo}
+                alt={`${item.company} logo`}
+                fill
+                sizes={isWordmark ? "76px" : "48px"}
+                className="object-contain"
+              />
+            </div>
           ) : (
             <span className="font-display text-lg font-medium text-foreground">
               {item.company.charAt(0)}

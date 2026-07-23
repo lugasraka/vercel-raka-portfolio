@@ -20,18 +20,18 @@ const credentialHeadingClass =
 function DegreeLogoSlot({ entry }: { entry: EducationType }) {
   if (entry.logos && entry.logos.length > 0) {
     return (
-      <div className="flex h-10 w-24 items-center justify-center gap-1 rounded-md bg-surface ring-1 ring-border dark:bg-white">
+      <div className="flex h-12 w-24 items-center justify-center gap-2 rounded-lg bg-white px-2 shadow-sm ring-1 ring-black/10 dark:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.8)]">
         {entry.logos.map((l) => (
           <div
             key={l}
-            className="flex h-9 w-9 items-center justify-center"
+            className="relative h-10 w-10"
           >
             <Image
               src={l}
               alt=""
-              width={36}
-              height={36}
-              className="h-full w-full object-contain"
+              fill
+              sizes="40px"
+              className="object-contain"
             />
           </div>
         ))}
@@ -39,15 +39,22 @@ function DegreeLogoSlot({ entry }: { entry: EducationType }) {
     );
   }
   if (entry.logo) {
+    const isWordmark = entry.logoDisplay === "wordmark";
     return (
-      <div className="flex h-10 w-10 items-center justify-center rounded-md bg-surface ring-1 ring-border dark:bg-white">
-        <Image
-          src={entry.logo}
-          alt=""
-          width={28}
-          height={28}
-          className="h-7 w-7 object-contain"
-        />
+      <div
+        className={`flex h-12 items-center justify-center bg-white shadow-sm ring-1 ring-black/10 dark:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.8)] ${
+          isWordmark ? "w-24 rounded-lg px-2.5" : "w-12 rounded-lg p-1.5"
+        }`}
+      >
+        <div className={isWordmark ? "relative h-8 w-full" : "relative h-9 w-9"}>
+          <Image
+            src={entry.logo}
+            alt=""
+            fill
+            sizes={isWordmark ? "76px" : "36px"}
+            className="object-contain"
+          />
+        </div>
       </div>
     );
   }
@@ -61,7 +68,7 @@ function DegreeLogoSlot({ entry }: { entry: EducationType }) {
 function DegreeEntry({ entry }: { entry: EducationType }) {
   return (
     <div className="flex gap-4">
-      <div className="flex w-14 shrink-0 items-start justify-center pt-1">
+      <div className="flex w-24 shrink-0 items-start justify-center pt-1">
         <DegreeLogoSlot entry={entry} />
       </div>
       <div className="min-w-0 flex-1">

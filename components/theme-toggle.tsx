@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { flushSync } from "react-dom";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -15,11 +16,36 @@ export function ThemeToggle() {
   }, []);
 
   const isDark = mounted && resolvedTheme === "dark";
-  const handleThemeChange = () => {
+  const handleThemeChange = (event: React.MouseEvent<HTMLButtonElement>) => {
     const root = document.documentElement;
-    root.classList.add("theme-transition");
-    setTheme(isDark ? "light" : "dark");
-    window.setTimeout(() => root.classList.remove("theme-transition"), 400);
+    const nextTheme = isDark ? "light" : "dark";
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (!document.startViewTransition || reduceMotion) {
+      setTheme(nextTheme);
+      return;
+    }
+
+    const { clientX, clientY } = event;
+    const radius = Math.hypot(
+      Math.max(clientX, window.innerWidth - clientX),
+      Math.max(clientY, window.innerHeight - clientY)
+    );
+
+    root.style.setProperty("--theme-x", `${clientX}px`);
+    root.style.setProperty("--theme-y", `${clientY}px`);
+    root.style.setProperty("--theme-radius", `${radius}px`);
+    root.classList.add("theme-view-transition");
+
+    const transition = document.startViewTransition(() => {
+      flushSync(() => setTheme(nextTheme));
+    });
+
+    transition.finished.finally(() => {
+      root.classList.remove("theme-view-transition");
+    });
   };
 
   return (

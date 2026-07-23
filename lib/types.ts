@@ -23,6 +23,7 @@ export type Experience = {
   highlights?: string[];
   tags?: string[];
   logo?: string;
+  logoDisplay?: "mark" | "wordmark";
   color?: string;
 };
 
@@ -34,6 +35,7 @@ export type Education = {
   note?: string;
   logo?: string;
   logos?: string[];
+  logoDisplay?: "mark" | "wordmark";
   color?: string;
 };
 

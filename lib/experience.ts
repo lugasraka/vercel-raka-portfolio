@@ -12,6 +12,7 @@ export const experience: Experience[] = [
     highlights: ["CCUS at 90%+ efficiency"],
     tags: ["CCUS", "TEA", "Process Simulation"],
     logo: "/logos/worldbank.svg",
+    logoDisplay: "wordmark",
   },
   {
     slug: "dow-sales",
@@ -23,6 +24,7 @@ export const experience: Experience[] = [
     highlights: ["$4M+ revenue growth potential"],
     tags: ["Sales", "Go-to-Market", "B2B"],
     logo: "/logos/dow.svg",
+    logoDisplay: "wordmark",
   },
   {
     slug: "icon-consultant",
@@ -37,6 +39,7 @@ export const experience: Experience[] = [
     ],
     tags: ["Strategy", "Market Entry", "Due Diligence"],
     logo: "/logos/icon.svg",
+    logoDisplay: "wordmark",
   },
   {
     slug: "kth-researcher",
@@ -52,6 +55,7 @@ export const experience: Experience[] = [
     ],
     tags: ["HVAC", "District Heating"],
     logo: "/logos/kth.svg",
+    logoDisplay: "mark",
   },
   {
     slug: "edf-intern",
@@ -63,6 +67,7 @@ export const experience: Experience[] = [
     highlights: ["−40% R&D cycles", "50+ technologies evaluated"],
     tags: ["TEA", "Waste-to-Energy", "TRL"],
     logo: "/logos/edf.svg",
+    logoDisplay: "wordmark",
   },
   {
     slug: "wienerberger-lca",
@@ -77,6 +82,7 @@ export const experience: Experience[] = [
     ],
     tags: ["LCA", "Carbon Accounting"],
     logo: "/logos/wienerberger.svg",
+    logoDisplay: "wordmark",
   },
   {
     slug: "eth-empa-lead-researcher",
@@ -88,6 +94,7 @@ export const experience: Experience[] = [
     highlights: ["+30% data transparency", "Cited in UN GRO 2024"],
     tags: ["LCA", "Data Modeling", "UN GRO 2024"],
     logo: "/logos/eth.svg",
+    logoDisplay: "wordmark",
   },
   {
     slug: "siemens",
@@ -103,5 +110,6 @@ export const experience: Experience[] = [
     ],
     tags: ["Product", "Scope 3", "Ecodesign", "GenAI"],
     logo: "/logos/siemens.svg",
+    logoDisplay: "wordmark",
   },
 ];

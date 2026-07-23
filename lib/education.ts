@@ -12,6 +12,7 @@ export const education: Education[] = [
     school: "Imperial College London",
     period: "2026 — 2028",
     logo: "/logos/imperial.svg",
+    logoDisplay: "wordmark",
     color: "#002147",
   },
   {
@@ -20,6 +21,7 @@ export const education: Education[] = [
     school: "ETH Zürich",
     period: "2019 — 2022",
     logo: "/logos/eth.svg",
+    logoDisplay: "wordmark",
     color: "#1F407A",
   },
   {
@@ -28,6 +30,7 @@ export const education: Education[] = [
     school: "École Polytechnique & KTH Royal Institute of Technology",
     period: "2016 — 2018",
     logos: ["/logos/polytechnique.svg", "/logos/kth.svg"],
+    logoDisplay: "mark",
     color: "#002A5C",
   },
   {
@@ -36,6 +39,7 @@ export const education: Education[] = [
     school: "Institut Teknologi Bandung (ITB)",
     period: "2010 — 2014",
     logo: "/logos/itb.svg",
+    logoDisplay: "mark",
     color: "#0B5C2E",
   },
 ];

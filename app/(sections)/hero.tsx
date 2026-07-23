@@ -81,14 +81,14 @@ export function Hero() {
 
           <div className="md:col-span-5">
             <Reveal delay={0.2}>
-              <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl shadow-xl ring-1 ring-border md:max-w-[25rem]">
+              <div className="hero-photo-frame relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl shadow-xl ring-1 ring-border md:max-w-[25rem]">
                 <Image
                   src="/photos/Raka-photo.jpg"
                   alt="Raka Adrianto"
                   fill
                   priority
                   sizes="(min-width: 768px) 25vw, 80vw"
-                  className="object-cover transition-transform duration-500 hover:scale-[1.02]"
+                  className="hero-photo-image object-cover"
                 />
               </div>
             </Reveal>
