@@ -8,7 +8,7 @@ export function About() {
   const groups = Object.entries(site.skills) as Array<[string, string[]]>;
   return (
     <section id="about" className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-[77.5rem] px-6">
         <SectionHeader
           eyebrow="About"
           title="A short version of the long story."
@@ -16,7 +16,7 @@ export function About() {
   
         <div className="mt-16 grid gap-12 md:grid-cols-12 md:gap-16">
           <Reveal className="md:col-span-7" delay={0.1}>
-            <div className="space-y-6 text-lg leading-relaxed text-foreground/80 text-pretty">
+            <div className="space-y-5 text-base leading-relaxed text-foreground/80 text-pretty md:max-w-[42rem]">
               {site.about.map((p, i) => (
                 <p key={i}>{p}</p>
               ))}

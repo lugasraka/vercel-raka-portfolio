@@ -22,7 +22,7 @@ export function Hero() {
         speed="normal"
       />
 
-      <div className="relative mx-auto max-w-[110rem] px-6">
+      <div className="relative mx-auto max-w-[77.5rem] px-6">
         <div className="grid items-center gap-12 md:grid-cols-12 md:gap-12 lg:gap-16">
           <div className="md:col-span-7">
             <Reveal>
@@ -79,9 +79,9 @@ export function Hero() {
             </Reveal>
           </div>
 
-          <div className="md:col-span-3">
+          <div className="md:col-span-5">
             <Reveal delay={0.2}>
-              <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl shadow-xl ring-1 ring-border md:max-w-[24rem]">
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl shadow-xl ring-1 ring-border md:max-w-[25rem]">
                 <Image
                   src="/photos/Raka-photo.jpg"
                   alt="Raka Adrianto"

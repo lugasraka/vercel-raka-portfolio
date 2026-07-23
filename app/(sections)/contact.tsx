@@ -15,7 +15,7 @@ const inputClass =
 
 function FieldLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span className="font-accent text-[10px] uppercase tracking-[0.25em] text-foreground/55">
+    <span className="font-accent text-xs uppercase tracking-[0.25em] text-foreground/55">
       {children}
     </span>
   );
@@ -44,7 +44,7 @@ export function Contact() {
 
   return (
     <section id="contact" className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-[110rem] px-6">
+      <div className="mx-auto max-w-[77.5rem] px-6">
         <div className="grid gap-12 md:grid-cols-2 md:gap-20">
           <Reveal className="md:pt-8">
             <p className="font-accent text-xs uppercase tracking-[0.3em] text-foreground/50">

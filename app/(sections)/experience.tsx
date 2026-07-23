@@ -8,13 +8,19 @@ type ExperienceProps = {
   items?: ExperienceType[];
 };
 
+type Phase = {
+  label: string;
+  range: string;
+  items: ExperienceType[];
+};
+
 function Highlights({ items }: { items: string[] }) {
   return (
     <ul className="mt-3 flex max-w-[12rem] flex-col items-center gap-1">
       {items.map((h) => (
         <li
           key={h}
-          className="rounded-full bg-foreground/5 px-2.5 py-0.5 text-[10px] font-semibold leading-snug text-foreground/85"
+          className="rounded-full bg-foreground/5 px-2.5 py-0.5 text-xs font-semibold leading-snug text-foreground/85"
         >
           {h}
         </li>
@@ -48,7 +54,7 @@ function TimelineEntry({ item }: { item: ExperienceType }) {
       <p className="mt-1 text-center font-accent text-sm italic text-foreground/60 md:text-base">
         {item.period}
       </p>
-      <p className="mt-3 max-w-[12rem] text-center text-[10px] font-medium uppercase tracking-wider text-foreground/55">
+      <p className="mt-3 max-w-[12rem] text-center text-xs font-medium uppercase tracking-wider text-foreground/55">
         {item.role}
       </p>
       <p className="mt-2 max-w-[12rem] text-center text-xs leading-relaxed text-foreground/75 text-pretty">
@@ -67,7 +73,7 @@ function MobileHighlights({ items }: { items: string[] }) {
       {items.map((h) => (
         <li
           key={h}
-          className="rounded-full bg-foreground/5 px-2.5 py-0.5 text-[10px] font-semibold leading-snug text-foreground/85"
+          className="rounded-full bg-foreground/5 px-2.5 py-0.5 text-xs font-semibold leading-snug text-foreground/85"
         >
           {h}
         </li>
@@ -104,7 +110,7 @@ function MobileTimelineEntry({ item }: { item: ExperienceType }) {
           {item.period}
           {item.location ? ` · ${item.location}` : ""}
         </p>
-        <p className="mt-2 text-[10px] font-medium uppercase tracking-wider text-foreground/55">
+        <p className="mt-2 text-xs font-medium uppercase tracking-wider text-foreground/55">
           {item.role}
         </p>
         <p className="mt-1 text-sm leading-relaxed text-foreground/80 text-pretty">
@@ -118,11 +124,67 @@ function MobileTimelineEntry({ item }: { item: ExperienceType }) {
   );
 }
 
+function PhaseRow({ phase }: { phase: Phase }) {
+  return (
+    <div className="mt-12 first:mt-0">
+      <div className="mb-6 flex items-center gap-4">
+        <p className="font-accent text-xs uppercase tracking-[0.25em] text-foreground/55 md:text-sm">
+          {phase.label}
+        </p>
+        <span className="h-px flex-1 bg-foreground/15" />
+        <p className="font-accent text-xs uppercase tracking-[0.2em] text-foreground/40 md:text-sm">
+          {phase.range}
+        </p>
+      </div>
+
+      <Stagger
+        className="timeline-track flex items-start justify-between gap-4"
+        stagger={0.06}
+      >
+        {phase.items.map((item) => (
+          <StaggerItem key={item.slug}>
+            <TimelineEntry item={item} />
+          </StaggerItem>
+        ))}
+      </Stagger>
+    </div>
+  );
+}
+
+function buildPhases(data: ExperienceType[]): Phase[] {
+  const slugs = new Set(data.map((d) => d.slug));
+  const byPhase: Phase[] = [
+    {
+      label: "Industry & Consulting",
+      range: "2014 — 2017",
+      items: data.filter((d) =>
+        ["world-bank", "dow-sales", "icon-consultant"].some((s) => slugs.has(s) && d.slug === s)
+      ),
+    },
+    {
+      label: "Research & Engineering",
+      range: "2017 — 2023",
+      items: data.filter((d) =>
+        ["kth-researcher", "edf-intern", "wienerberger-lca", "eth-empa-lead-researcher"].some(
+          (s) => slugs.has(s) && d.slug === s
+        )
+      ),
+    },
+    {
+      label: "Product & Program",
+      range: "2023 — Now",
+      items: data.filter((d) => d.slug === "siemens"),
+    },
+  ];
+  return byPhase.filter((p) => p.items.length > 0);
+}
+
 export function Experience({ items }: ExperienceProps = {}) {
   const data = items && items.length > 0 ? items : fallbackExperience;
+  const phases = buildPhases(data);
   return (
     <section id="experience" className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-[110rem] px-6">
+      <div className="mx-auto max-w-[77.5rem] px-6">
         <Reveal>
           <p className="font-accent text-sm uppercase tracking-[0.25em] text-foreground/50 md:text-base">
             Journey
@@ -137,20 +199,13 @@ export function Experience({ items }: ExperienceProps = {}) {
           </p>
         </Reveal>
 
-        <div className="mt-20 hidden md:block">
-          <Stagger
-            className="timeline-track flex items-start justify-between gap-4"
-            stagger={0.08}
-          >
-            {data.map((item) => (
-              <StaggerItem key={item.slug}>
-                <TimelineEntry item={item} />
-              </StaggerItem>
-            ))}
-          </Stagger>
+        <div className="mt-16 hidden md:block">
+          {phases.map((phase) => (
+            <PhaseRow key={phase.label} phase={phase} />
+          ))}
         </div>
 
-        <div className="mt-16 md:hidden">
+        <div className="mt-12 md:hidden">
           <Stagger className="space-y-8" stagger={0.06}>
             {data.map((item) => (
               <StaggerItem key={`m-${item.slug}`}>

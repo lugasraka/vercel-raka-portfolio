@@ -17,7 +17,7 @@ function ProjectCard({ project }: { project: ProjectType }) {
     <Card className="flex h-full flex-col">
       <Reveal y={0}>
         <div className="flex items-center justify-between">
-          <p className="font-accent text-sm italic text-foreground/50">
+            <p className="font-accent text-sm italic text-foreground/60 md:text-base">
             {project.year}
           </p>
           <span className="text-xs uppercase tracking-wider text-foreground/40">
@@ -158,7 +158,7 @@ export function Projects({ items }: ProjectsProps = {}) {
 
   return (
     <section id="projects" className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-[77.5rem] px-6">
         <SectionHeader
           eyebrow="Selected work"
           title="AI products and applied research."

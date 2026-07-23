@@ -59,7 +59,7 @@ function DegreeEntry({ entry }: { entry: EducationType }) {
         <DegreeLogoSlot entry={entry} />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="font-accent text-xs italic text-foreground/50">
+        <p className="font-accent text-sm italic text-foreground/60 md:text-base">
           {entry.period}
         </p>
         <p className="mt-1 font-display text-base font-medium leading-snug text-foreground">
@@ -79,7 +79,7 @@ function DegreeEntry({ entry }: { entry: EducationType }) {
 export function Education() {
   return (
     <section id="education" className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-[77.5rem] px-6">
         <SectionHeader
           eyebrow="Education & Credentials"
           title="Degrees, certifications, and wins."
@@ -120,7 +120,7 @@ export function Education() {
                         </p>
                       </div>
                       {c.year && (
-                        <span className="shrink-0 font-accent text-xs italic text-foreground/40">
+                        <span className="shrink-0 font-accent text-sm italic text-foreground/60 md:text-base">
                           {c.year}
                         </span>
                       )}
@@ -145,7 +145,7 @@ export function Education() {
                           {a.title}
                         </p>
                         {a.year && (
-                          <span className="shrink-0 font-accent text-xs italic text-foreground/40">
+                          <span className="shrink-0 font-accent text-sm italic text-foreground/60 md:text-base">
                             {a.year}
                           </span>
                         )}
@@ -172,7 +172,7 @@ export function Education() {
                           {c.title}
                         </p>
                         {c.year && (
-                          <span className="shrink-0 font-accent text-xs italic text-foreground/40">
+                          <span className="shrink-0 font-accent text-sm italic text-foreground/60 md:text-base">
                             {c.year}
                           </span>
                         )}

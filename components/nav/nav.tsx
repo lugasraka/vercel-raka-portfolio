@@ -32,12 +32,12 @@ export function Nav() {
           : "border-b border-transparent bg-transparent"
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex h-16 max-w-[77.5rem] items-center justify-between px-6">
         <Link
           href="#top"
-          className="font-display text-lg font-semibold tracking-tight text-foreground"
+          className="font-display text-base font-semibold uppercase tracking-[0.18em] text-foreground"
         >
-          Raka<span className="text-accent">.</span>
+          Raka Adrianto
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
@@ -45,18 +45,12 @@ export function Nav() {
             <a
               key={l.href}
               href={l.href}
-              className="group relative text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
+              className="group relative text-sm font-medium uppercase tracking-[0.2em] text-foreground/70 transition-colors hover:text-foreground"
             >
               {l.label}
               <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
-          <a
-            href="#contact"
-            className="rounded-full border border-foreground/20 px-4 py-1.5 text-sm font-medium text-foreground transition-all hover:border-foreground/60 hover:bg-foreground hover:text-background"
-          >
-            Get in touch
-          </a>
           <ThemeToggle />
         </nav>
 
@@ -89,7 +83,7 @@ export function Nav() {
 
       {open && (
         <div className="border-t border-border/60 bg-background/95 backdrop-blur-md md:hidden">
-          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-4">
+          <nav className="mx-auto flex max-w-[77.5rem] flex-col gap-1 px-6 py-4">
             {links.map((l) => (
               <a
                 key={l.href}
