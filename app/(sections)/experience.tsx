@@ -200,7 +200,7 @@ export function Experience({ items }: ExperienceProps = {}) {
     <section id="experience" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-[77.5rem] px-6">
         <Reveal>
-          <p className="font-accent text-sm font-semibold uppercase tracking-[0.25em] text-foreground/50 md:text-base">
+          <p className="font-accent text-sm font-semibold uppercase tracking-[0.25em] text-accent md:text-base">
             Journey
           </p>
           <h2 className="mt-3 font-display text-4xl font-medium leading-tight tracking-tight text-foreground text-balance md:text-5xl lg:text-6xl">

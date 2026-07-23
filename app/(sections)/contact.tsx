@@ -47,7 +47,7 @@ export function Contact() {
       <div className="mx-auto max-w-[77.5rem] px-6">
         <div className="grid gap-12 md:grid-cols-2 md:gap-20">
           <Reveal className="md:pt-8">
-            <p className="font-accent text-xs font-semibold uppercase tracking-[0.3em] text-foreground/50">
+            <p className="font-accent text-xs font-semibold uppercase tracking-[0.3em] text-accent">
               Contact
             </p>
             <h2 className="mt-4 font-display text-5xl font-medium leading-[1.05] tracking-tight text-foreground text-balance md:text-6xl lg:text-7xl">
@@ -88,7 +88,7 @@ export function Contact() {
           <Reveal delay={0.15}>
             <form
               onSubmit={handleSubmit}
-              className="rounded-3xl bg-form-bg p-8 md:p-12"
+              className="rounded-3xl bg-form-bg p-8 transition-colors duration-300 motion-reduce:transition-none md:p-12"
             >
               <div className="space-y-8">
                 <label className="block">
