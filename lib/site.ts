@@ -34,16 +34,17 @@ export const site = {
       "SQL",
       "Machine Learning",
       "LLMs & RAG",
+      "Claude Code / Codex / Copilot",
       "Data Visualization",
     ],
     "Product & Program": [
       "Product Strategy & Roadmaps",
       "Cross-Functional Leadership",
       "Agile / Scrum",
-      "User Research",
+      "Prototyping with AI Tools",
       "Stakeholder Management",
     ],
-    Sustainability: [
+    "Sustainability": [
       "Life Cycle Assessment",
       "Scope 3 Accounting",
       "Ecodesign",
@@ -53,8 +54,7 @@ export const site = {
     "Energy & Industry": [
       "Building Automation",
       "HVAC & Energy Efficiency",
-      "Energy Optimization",
-      "Techno-Economic Analysis",
+      "Renewable Energy",
       "Smart Asset Management",
     ],
   },
