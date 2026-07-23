@@ -20,7 +20,7 @@ function Highlights({ items }: { items: string[] }) {
       {items.map((h) => (
         <li
           key={h}
-          className="rounded-full bg-foreground/5 px-2.5 py-0.5 text-xs font-semibold leading-snug text-foreground/85"
+          className="journey-highlight rounded-full bg-foreground/5 px-2.5 py-0.5 text-xs font-semibold leading-snug text-foreground/85 transition-colors duration-300"
         >
           {h}
         </li>
@@ -31,8 +31,8 @@ function Highlights({ items }: { items: string[] }) {
 
 function TimelineEntry({ item }: { item: ExperienceType }) {
   return (
-    <div className="relative z-10 flex w-48 shrink-0 flex-col items-center md:w-52">
-      <div className="relative flex h-[72px] w-[72px] items-center justify-center rounded-full bg-surface shadow-sm ring-1 ring-border transition-transform duration-300 hover:scale-105 dark:bg-white">
+    <div className="journey-entry relative z-10 flex w-48 shrink-0 flex-col items-center md:w-52">
+      <div className="journey-logo relative flex h-[72px] w-[72px] items-center justify-center rounded-full bg-surface shadow-sm ring-1 ring-border transition-all duration-500 dark:bg-white">
         {item.logo ? (
           <Image
             src={item.logo}
@@ -48,10 +48,10 @@ function TimelineEntry({ item }: { item: ExperienceType }) {
         )}
       </div>
 
-      <h3 className="mt-5 text-center font-display text-base font-medium leading-tight text-foreground">
+      <h3 className="journey-title mt-5 text-center font-display text-base font-medium leading-tight text-foreground transition-colors duration-300">
         {item.company}
       </h3>
-      <p className="mt-1 text-center font-accent text-sm italic text-foreground/60 md:text-base">
+      <p className="mt-1 text-center font-accent text-sm italic text-foreground/70 md:text-base">
         {item.period}
       </p>
       <p className="mt-3 max-w-[12rem] text-center text-xs font-medium uppercase tracking-wider text-foreground/55">
@@ -73,7 +73,7 @@ function MobileHighlights({ items }: { items: string[] }) {
       {items.map((h) => (
         <li
           key={h}
-          className="rounded-full bg-foreground/5 px-2.5 py-0.5 text-xs font-semibold leading-snug text-foreground/85"
+          className="journey-highlight rounded-full bg-foreground/5 px-2.5 py-0.5 text-xs font-semibold leading-snug text-foreground/85 transition-colors duration-300"
         >
           {h}
         </li>
@@ -84,9 +84,9 @@ function MobileHighlights({ items }: { items: string[] }) {
 
 function MobileTimelineEntry({ item }: { item: ExperienceType }) {
   return (
-    <div className="flex gap-4">
+    <div className="journey-entry flex gap-4">
       <div className="relative shrink-0">
-        <div className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-surface shadow-sm ring-1 ring-border dark:bg-white">
+        <div className="journey-logo flex h-[72px] w-[72px] items-center justify-center rounded-full bg-surface shadow-sm ring-1 ring-border transition-all duration-500 dark:bg-white">
           {item.logo ? (
             <Image
               src={item.logo}
@@ -103,10 +103,10 @@ function MobileTimelineEntry({ item }: { item: ExperienceType }) {
         </div>
       </div>
       <div className="flex-1 pt-1">
-        <h3 className="font-display text-base font-medium leading-tight text-foreground">
+        <h3 className="journey-title font-display text-base font-medium leading-tight text-foreground transition-colors duration-300">
           {item.company}
         </h3>
-        <p className="mt-1 font-accent text-sm italic text-foreground/60 md:text-base">
+        <p className="mt-1 font-accent text-sm italic text-foreground/70 md:text-base">
           {item.period}
           {item.location ? ` · ${item.location}` : ""}
         </p>
@@ -128,11 +128,11 @@ function PhaseRow({ phase }: { phase: Phase }) {
   return (
     <div className="mt-12 first:mt-0">
       <div className="mb-6 flex items-center gap-4">
-        <p className="font-accent text-xs uppercase tracking-[0.25em] text-foreground/55 md:text-sm">
+        <p className="font-accent text-xs uppercase tracking-[0.25em] text-foreground/70 md:text-sm">
           {phase.label}
         </p>
         <span className="h-px flex-1 bg-foreground/15" />
-        <p className="font-accent text-xs uppercase tracking-[0.2em] text-foreground/40 md:text-sm">
+        <p className="font-accent text-xs uppercase tracking-[0.2em] text-foreground/70 md:text-sm">
           {phase.range}
         </p>
       </div>
@@ -186,7 +186,7 @@ export function Experience({ items }: ExperienceProps = {}) {
     <section id="experience" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-[77.5rem] px-6">
         <Reveal>
-          <p className="font-accent text-sm uppercase tracking-[0.25em] text-foreground/50 md:text-base">
+          <p className="font-accent text-sm font-semibold uppercase tracking-[0.25em] text-foreground/50 md:text-base">
             Journey
           </p>
           <h2 className="mt-3 font-display text-4xl font-medium leading-tight tracking-tight text-foreground text-balance md:text-5xl lg:text-6xl">
@@ -206,13 +206,26 @@ export function Experience({ items }: ExperienceProps = {}) {
         </div>
 
         <div className="mt-12 md:hidden">
-          <Stagger className="space-y-8" stagger={0.06}>
-            {data.map((item) => (
-              <StaggerItem key={`m-${item.slug}`}>
-                <MobileTimelineEntry item={item} />
-              </StaggerItem>
-            ))}
-          </Stagger>
+          {phases.map((phase) => (
+            <div key={phase.label} className="mt-12 first:mt-0">
+              <div className="mb-6 flex items-center gap-4">
+                <p className="font-accent text-xs uppercase tracking-[0.25em] text-foreground/70">
+                  {phase.label}
+                </p>
+                <span className="h-px flex-1 bg-foreground/15" />
+                <p className="font-accent text-xs uppercase tracking-[0.2em] text-foreground/70">
+                  {phase.range}
+                </p>
+              </div>
+              <Stagger className="space-y-8" stagger={0.06}>
+                {phase.items.map((item) => (
+                  <StaggerItem key={`m-${item.slug}`}>
+                    <MobileTimelineEntry item={item} />
+                  </StaggerItem>
+                ))}
+              </Stagger>
+            </div>
+          ))}
         </div>
       </div>
     </section>

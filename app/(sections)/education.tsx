@@ -11,6 +11,12 @@ import {
 } from "@/lib/education";
 import type { Education as EducationType } from "@/lib/types";
 
+const credentialCardClass =
+  "group/credential h-full rounded-2xl border border-border bg-surface/60 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-foreground/30 hover:bg-surface hover:shadow-[0_20px_60px_-20px_rgba(15,25,36,0.15)] motion-reduce:transform-none";
+
+const credentialHeadingClass =
+  "font-display text-sm font-medium uppercase tracking-[0.2em] text-foreground/60 transition-colors duration-300 group-hover/credential:text-accent";
+
 function DegreeLogoSlot({ entry }: { entry: EducationType }) {
   if (entry.logos && entry.logos.length > 0) {
     return (
@@ -59,7 +65,7 @@ function DegreeEntry({ entry }: { entry: EducationType }) {
         <DegreeLogoSlot entry={entry} />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="font-accent text-sm italic text-foreground/60 md:text-base">
+        <p className="font-accent text-sm italic text-foreground/70 md:text-base">
           {entry.period}
         </p>
         <p className="mt-1 font-display text-base font-medium leading-snug text-foreground">
@@ -88,8 +94,8 @@ export function Education() {
 
         <div className="mt-16 grid gap-6 md:grid-cols-2">
           <Reveal delay={0.1}>
-            <div className="h-full rounded-2xl border border-border bg-surface/60 p-6">
-              <h3 className="font-display text-sm font-medium uppercase tracking-[0.2em] text-foreground/60">
+            <div className={credentialCardClass}>
+              <h3 className={credentialHeadingClass}>
                 Degrees
               </h3>
               <Stagger className="mt-5 space-y-6" stagger={0.06}>
@@ -103,8 +109,8 @@ export function Education() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <div className="h-full rounded-2xl border border-border bg-surface/60 p-6">
-              <h3 className="font-display text-sm font-medium uppercase tracking-[0.2em] text-foreground/60">
+            <div className={credentialCardClass}>
+              <h3 className={credentialHeadingClass}>
                 Certifications
               </h3>
               <Stagger className="mt-5 space-y-4" stagger={0.04}>
@@ -120,7 +126,7 @@ export function Education() {
                         </p>
                       </div>
                       {c.year && (
-                        <span className="shrink-0 font-accent text-sm italic text-foreground/60 md:text-base">
+                        <span className="shrink-0 font-accent text-sm italic text-foreground/70 md:text-base">
                           {c.year}
                         </span>
                       )}
@@ -132,8 +138,8 @@ export function Education() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <div className="h-full rounded-2xl border border-border bg-surface/60 p-6">
-              <h3 className="font-display text-sm font-medium uppercase tracking-[0.2em] text-foreground/60">
+            <div className={credentialCardClass}>
+              <h3 className={credentialHeadingClass}>
                 Awards & Fellowships
               </h3>
               <Stagger className="mt-5 space-y-4" stagger={0.06}>
@@ -145,7 +151,7 @@ export function Education() {
                           {a.title}
                         </p>
                         {a.year && (
-                          <span className="shrink-0 font-accent text-sm italic text-foreground/60 md:text-base">
+                          <span className="shrink-0 font-accent text-sm italic text-foreground/70 md:text-base">
                             {a.year}
                           </span>
                         )}
@@ -159,8 +165,8 @@ export function Education() {
           </Reveal>
 
           <Reveal delay={0.25}>
-            <div className="h-full rounded-2xl border border-border bg-surface/60 p-6">
-              <h3 className="font-display text-sm font-medium uppercase tracking-[0.2em] text-foreground/60">
+            <div className={credentialCardClass}>
+              <h3 className={credentialHeadingClass}>
                 Competitions & Hackathons
               </h3>
               <Stagger className="mt-5 space-y-4" stagger={0.06}>
@@ -172,7 +178,7 @@ export function Education() {
                           {c.title}
                         </p>
                         {c.year && (
-                          <span className="shrink-0 font-accent text-sm italic text-foreground/60 md:text-base">
+                          <span className="shrink-0 font-accent text-sm italic text-foreground/70 md:text-base">
                             {c.year}
                           </span>
                         )}

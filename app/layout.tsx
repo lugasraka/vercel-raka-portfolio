@@ -54,7 +54,6 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
         >
           <Nav />
           <main className="flex-1">{children}</main>

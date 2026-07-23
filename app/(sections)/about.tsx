@@ -24,8 +24,8 @@ export function About() {
           </Reveal>
 
           <Reveal className="md:col-span-5" delay={0.2}>
-            <div className="rounded-2xl border border-border bg-surface/60 p-6">
-              <h3 className="font-display text-sm font-medium uppercase tracking-[0.2em] text-foreground/60">
+            <div className="group/about rounded-2xl border border-border bg-surface/60 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-foreground/30 hover:bg-surface hover:shadow-[0_20px_60px_-20px_rgba(15,25,36,0.15)] motion-reduce:transform-none">
+              <h3 className="font-display text-sm font-medium uppercase tracking-[0.2em] text-foreground/60 transition-colors duration-300 group-hover/about:text-accent">
                 What I work with
               </h3>
               <Stagger
@@ -36,12 +36,16 @@ export function About() {
                 {groups.map(([group, items]) => (
                   <StaggerItem key={group}>
                     <div>
-                      <p className="font-accent text-xs italic text-foreground/50">
+                      <p className="font-accent text-xs italic text-foreground/70">
                         {group}
                       </p>
                       <div className="mt-2 flex flex-wrap gap-1.5">
                         {items.map((s) => (
-                          <Badge key={s} tone="outline">
+                          <Badge
+                            key={s}
+                            tone="outline"
+                            className="transition-colors duration-300 hover:border-accent/50 hover:bg-accent/10 hover:text-foreground"
+                          >
                             {s}
                           </Badge>
                         ))}

@@ -47,7 +47,7 @@ export function Contact() {
       <div className="mx-auto max-w-[77.5rem] px-6">
         <div className="grid gap-12 md:grid-cols-2 md:gap-20">
           <Reveal className="md:pt-8">
-            <p className="font-accent text-xs uppercase tracking-[0.3em] text-foreground/50">
+            <p className="font-accent text-xs font-semibold uppercase tracking-[0.3em] text-foreground/50">
               Contact
             </p>
             <h2 className="mt-4 font-display text-5xl font-medium leading-[1.05] tracking-tight text-foreground text-balance md:text-6xl lg:text-7xl">

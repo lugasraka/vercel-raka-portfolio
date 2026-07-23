@@ -14,13 +14,13 @@ function ProjectCard({ project }: { project: ProjectType }) {
   const primaryHref = project.liveUrl ?? project.githubUrl;
   const isExternal = !!project.liveUrl;
   return (
-    <Card className="flex h-full flex-col">
+    <Card className="flex h-full flex-col hover:-translate-y-1 hover:bg-surface motion-reduce:transform-none">
       <Reveal y={0}>
         <div className="flex items-center justify-between">
-            <p className="font-accent text-sm italic text-foreground/60 md:text-base">
+            <p className="font-accent text-sm italic text-foreground/70 md:text-base">
             {project.year}
           </p>
-          <span className="text-xs uppercase tracking-wider text-foreground/40">
+          <span className="text-xs uppercase tracking-wider text-foreground/70">
             {project.role}
           </span>
         </div>
@@ -31,12 +31,12 @@ function ProjectCard({ project }: { project: ProjectType }) {
               href={primaryHref}
               target={isExternal ? "_blank" : undefined}
               rel={isExternal ? "noopener noreferrer" : undefined}
-              className="inline-flex items-baseline transition-colors hover:text-accent"
+              className="inline-flex items-baseline transition-colors group-hover:text-accent"
             >
               {project.title}
               <span
                 aria-hidden
-                className="ml-2 inline-block transition-transform duration-300 hover:translate-x-1"
+                className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5 motion-reduce:transform-none"
               >
                 ↗
               </span>
@@ -106,7 +106,7 @@ function ProjectGroup({
     <div className="mt-20 first:mt-16">
       <Reveal>
         <div className="max-w-2xl">
-          <p className="font-accent text-sm uppercase tracking-[0.25em] text-accent md:text-base">
+          <p className="font-accent text-sm font-semibold uppercase tracking-[0.25em] text-accent md:text-base">
             {eyebrow}
           </p>
           <h3 className="mt-2 font-display text-2xl font-medium leading-tight tracking-tight text-foreground text-balance md:text-3xl">

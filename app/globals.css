@@ -53,6 +53,15 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 ::selection {
   background: var(--accent);
   color: var(--deep);
@@ -102,5 +111,41 @@ body {
     );
     opacity: 0.22;
     z-index: 0;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .journey-entry:hover .journey-logo {
+    transform: scale(1.03);
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--accent) 50%, transparent),
+      0 12px 30px -12px rgba(184, 146, 74, 0.45);
+  }
+
+  .journey-entry:hover .journey-title {
+    color: var(--accent);
+  }
+
+  .journey-entry:hover .journey-highlight {
+    background: color-mix(in srgb, var(--accent) 15%, transparent);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 768px) {
+  .journey-entry:hover .journey-logo {
+    transform: scale(1.05);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-transition,
+  .theme-transition *,
+  .theme-transition *::before,
+  .theme-transition *::after {
+    transition-duration: 0ms;
+  }
+
+  .journey-entry:hover .journey-logo {
+    transform: none;
   }
 }

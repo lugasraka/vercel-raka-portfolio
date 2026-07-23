@@ -26,7 +26,7 @@ export function Hero() {
         <div className="grid items-center gap-12 md:grid-cols-12 md:gap-12 lg:gap-16">
           <div className="md:col-span-7">
             <Reveal>
-              <p className="font-accent text-sm uppercase tracking-[0.25em] text-accent md:text-base">
+              <p className="font-accent text-sm font-semibold uppercase tracking-[0.25em] text-accent md:text-base">
                 Hello, I&apos;m
               </p>
             </Reveal>
