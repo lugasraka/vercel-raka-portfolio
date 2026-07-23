@@ -24,7 +24,7 @@ export const education: Education[] = [
   },
   {
     degree: "MSc (joint)",
-    field: "Energy Systems · HVAC · Renewables",
+    field: "Mechanical Engineering · Energy Systems",
     school: "École Polytechnique & KTH Royal Institute of Technology",
     period: "2016 — 2018",
     logos: ["/logos/polytechnique.svg", "/logos/kth.svg"],
