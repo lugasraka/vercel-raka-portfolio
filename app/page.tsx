@@ -9,13 +9,13 @@ import { projects } from "@/lib/projects";
 
 export default function Home() {
   return (
-    <>
+    <div className="mx-auto max-w-6xl border-x border-border-subtle/60">
       <Hero />
       <About />
       <Experience items={experience} />
       <Projects items={projects} />
       <Education />
       <Contact />
-    </>
+    </div>
   );
 }

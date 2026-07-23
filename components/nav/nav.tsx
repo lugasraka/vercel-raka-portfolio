@@ -6,10 +6,11 @@ import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: "About", num: "01" },
+  { href: "#experience", label: "Experience", num: "02" },
+  { href: "#projects", label: "Work", num: "03" },
+  { href: "#education", label: "Education", num: "04" },
+  { href: "#contact", label: "Contact", num: "05" },
 ];
 
 export function Nav() {
@@ -26,37 +27,29 @@ export function Nav() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-500",
-        scrolled
-          ? "border-b border-border/60 bg-background/80 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent"
+        "sticky top-0 z-50 w-full border-b border-border-subtle backdrop-blur-md transition-colors",
+        scrolled ? "bg-background/80" : "bg-background/60"
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-8">
         <Link
           href="#top"
-          className="font-display text-lg font-semibold tracking-tight text-foreground"
+          className="font-mono text-sm font-semibold tracking-tight text-foreground"
         >
-          Raka<span className="text-accent">.</span>
+          raka<span className="text-text-meta">.adrianto</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="group relative text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
+              className="group inline-flex items-baseline gap-1.5 font-mono text-xs uppercase tracking-widest text-text-meta transition-colors hover:text-foreground"
             >
-              {l.label}
-              <span className="absolute -bottom-1 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
+              <span className="text-text-meta">{l.num}</span>
+              <span>/ {l.label}</span>
             </a>
           ))}
-          <a
-            href="#contact"
-            className="rounded-full border border-foreground/20 px-4 py-1.5 text-sm font-medium text-foreground transition-all hover:border-foreground/60 hover:bg-foreground hover:text-background"
-          >
-            Get in touch
-          </a>
           <ThemeToggle />
         </nav>
 
@@ -66,7 +59,7 @@ export function Nav() {
             aria-label="Toggle menu"
             aria-expanded={open}
             onClick={() => setOpen((o) => !o)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-foreground/15"
+            className="flex h-9 w-9 items-center justify-center rounded-none border border-border-subtle"
           >
             <span className="sr-only">Menu</span>
             <div className="flex flex-col gap-1.5">
@@ -88,16 +81,17 @@ export function Nav() {
       </div>
 
       {open && (
-        <div className="border-t border-border/60 bg-background/95 backdrop-blur-md md:hidden">
-          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-6 py-4">
+        <div className="border-t border-border-subtle bg-background/95 backdrop-blur-md md:hidden">
+          <nav className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-8">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground"
+                className="flex items-baseline gap-2 px-3 py-2.5 font-mono text-xs uppercase tracking-widest text-text-secondary transition-colors hover:bg-hover-surface hover:text-foreground"
               >
-                {l.label}
+                <span className="text-text-meta">{l.num}</span>
+                <span>/ {l.label}</span>
               </a>
             ))}
           </nav>

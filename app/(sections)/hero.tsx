@@ -1,99 +1,79 @@
 import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
-import { Blob } from "@/components/decorations/blob";
-import { Button } from "@/components/ui/button";
 import { site } from "@/lib/site";
 
 export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden pt-24 pb-32 md:pt-32 md:pb-40"
+      className="grid grid-cols-1 gap-6 border-b border-border-subtle px-4 py-16 sm:px-8 md:grid-cols-12 md:gap-8 md:py-24"
     >
-      <Blob
-        className="-top-20 -right-20"
-        color="mixed"
-        size="lg"
-      />
-      <Blob
-        className="-bottom-32 -left-20"
-        color="accent"
-        size="md"
-        speed="normal"
-      />
+      <div className="md:col-span-3">
+        <Reveal>
+          <p className="font-mono text-xs uppercase tracking-widest text-text-meta">
+            00 / Overview
+          </p>
+        </Reveal>
+      </div>
 
-      <div className="relative mx-auto max-w-[110rem] px-6">
-        <div className="grid items-center gap-12 md:grid-cols-12 md:gap-12 lg:gap-16">
-          <div className="md:col-span-7">
-            <Reveal>
-              <p className="font-accent text-sm uppercase tracking-[0.25em] text-accent md:text-base">
-                Hello, I&apos;m
-              </p>
-            </Reveal>
+      <div className="md:col-span-9">
+        <Reveal>
+          <p className="font-mono text-xs uppercase tracking-widest text-text-meta">
+            Hello, I&apos;m
+          </p>
+        </Reveal>
 
-            <Reveal delay={0.1} as="h1">
-              <span className="mt-3 block font-display text-5xl font-medium leading-[1.05] tracking-tight text-foreground text-balance md:text-7xl lg:text-8xl">
-                Raka Adrianto.
-              </span>
-            </Reveal>
+        <Reveal delay={0.1} as="h1">
+          <span className="mt-3 block font-sans text-5xl font-semibold leading-[1.05] tracking-tight text-text-primary text-balance md:text-7xl">
+            Raka Adrianto.
+          </span>
+        </Reveal>
 
-            <Reveal delay={0.2}>
-              <h2 className="mt-6 max-w-3xl font-display text-2xl font-light leading-snug text-foreground/80 text-balance md:text-3xl lg:text-4xl">
-                <span className="font-accent italic text-foreground/60">
-                  A{" "}
-                </span>
-                technical manager &amp; engineering PhD
-                <span className="font-accent italic text-foreground/60">
-                  {" "}
-                  turning complex data
-                </span>{" "}
-                into product decisions, based in{" "}
-                {site.location.split(",")[0]}.
-              </h2>
-            </Reveal>
+        <Reveal delay={0.2}>
+          <h2 className="mt-6 max-w-3xl font-sans text-2xl font-normal leading-snug text-text-secondary text-balance md:text-3xl lg:text-4xl">
+            A technical manager &amp; engineering PhD turning complex data
+            into product decisions, based in {site.location.split(",")[0]}.
+          </h2>
+        </Reveal>
 
-            <Reveal delay={0.3}>
-              <p className="mt-8 max-w-xl text-base leading-relaxed text-foreground/70 text-pretty md:text-lg">
-                {site.tagline}
-              </p>
-            </Reveal>
+        <Reveal delay={0.3}>
+          <p className="mt-8 max-w-2xl text-base leading-relaxed text-text-secondary text-pretty md:text-lg">
+            {site.tagline}
+          </p>
+        </Reveal>
 
-            <Reveal delay={0.4}>
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Button href="#projects" variant="primary" size="lg">
-                  View selected work
-                  <span aria-hidden>→</span>
-                </Button>
-                <Button href="#contact" variant="outline" size="lg">
-                  Get in touch
-                </Button>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.6} className="mt-20 hidden md:block">
-              <div className="flex items-center gap-6 text-xs uppercase tracking-[0.2em] text-foreground/40">
-                <span>Scroll</span>
-                <span className="h-px w-12 bg-foreground/30" />
-                <span>to explore</span>
-              </div>
-            </Reveal>
+        <Reveal delay={0.4}>
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 bg-foreground px-5 py-2.5 font-mono text-xs uppercase tracking-widest text-background transition-opacity hover:opacity-80"
+            >
+              View selected work
+              <span aria-hidden>→</span>
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 border border-border-subtle px-5 py-2.5 font-mono text-xs uppercase tracking-widest text-foreground transition-colors hover:bg-hover-surface"
+            >
+              Get in touch
+            </a>
           </div>
+        </Reveal>
 
-          <div className="md:col-span-3">
-            <Reveal delay={0.2}>
-              <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl shadow-xl ring-1 ring-border md:max-w-[24rem]">
-                <Image
-                  src="/photos/Raka-photo.jpg"
-                  alt="Raka Adrianto"
-                  fill
-                  priority
-                  sizes="(min-width: 768px) 25vw, 80vw"
-                  className="object-cover transition-transform duration-500 hover:scale-[1.02]"
-                />
-              </div>
-            </Reveal>
+        <Reveal delay={0.6} className="mt-16 hidden md:block">
+          <div className="flex justify-end">
+            <div className="relative aspect-square w-40 overflow-hidden md:w-56 lg:w-64">
+              <Image
+                src="/photos/Raka-photo.jpg"
+                alt="Raka Adrianto"
+                fill
+                priority
+                sizes="(min-width: 768px) 16rem, 10rem"
+                className="object-cover"
+              />
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

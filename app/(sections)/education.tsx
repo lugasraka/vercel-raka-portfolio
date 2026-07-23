@@ -1,7 +1,5 @@
-import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { Stagger, StaggerItem } from "@/components/motion/stagger";
-import { SectionHeader } from "@/components/section-header";
 import { Badge } from "@/components/ui/badge";
 import {
   education,
@@ -9,188 +7,165 @@ import {
   awards,
   competitions,
 } from "@/lib/education";
-import type { Education as EducationType } from "@/lib/types";
 
-function DegreeLogoSlot({ entry }: { entry: EducationType }) {
-  if (entry.logos && entry.logos.length > 0) {
-    return (
-      <div className="flex h-10 w-24 items-center justify-center gap-1 rounded-md bg-surface ring-1 ring-border dark:bg-white">
-        {entry.logos.map((l) => (
-          <div
-            key={l}
-            className="flex h-9 w-9 items-center justify-center"
-          >
-            <Image
-              src={l}
-              alt=""
-              width={36}
-              height={36}
-              className="h-full w-full object-contain"
-            />
-          </div>
-        ))}
-      </div>
-    );
-  }
-  if (entry.logo) {
-    return (
-      <div className="flex h-10 w-10 items-center justify-center rounded-md bg-surface ring-1 ring-border dark:bg-white">
-        <Image
-          src={entry.logo}
-          alt=""
-          width={28}
-          height={28}
-          className="h-7 w-7 object-contain"
-        />
-      </div>
-    );
-  }
+function DegreeRow({
+  entry,
+}: {
+  entry: (typeof education)[number];
+}) {
   return (
-    <div className="flex h-10 w-10 items-center justify-center rounded-md bg-foreground/5 font-display text-sm font-medium text-foreground/70">
-      {entry.school.charAt(0)}
-    </div>
-  );
-}
-
-function DegreeEntry({ entry }: { entry: EducationType }) {
-  return (
-    <div className="flex gap-4">
-      <div className="flex w-14 shrink-0 items-start justify-center pt-1">
-        <DegreeLogoSlot entry={entry} />
-      </div>
-      <div className="min-w-0 flex-1">
-        <p className="font-accent text-xs italic text-foreground/50">
+    <div className="grid grid-cols-1 gap-2 border-b border-border-subtle py-5 transition-colors hover:bg-hover-surface md:grid-cols-12 md:gap-6">
+      <div className="md:col-span-3">
+        <p className="font-mono text-xs uppercase tracking-widest text-text-meta">
           {entry.period}
         </p>
-        <p className="mt-1 font-display text-base font-medium leading-snug text-foreground">
+      </div>
+      <div className="md:col-span-9">
+        <p className="font-sans text-base font-medium leading-snug text-foreground">
           {entry.degree}, {entry.field}
         </p>
-        <p className="text-sm text-foreground/70">{entry.school}</p>
+        <p className="mt-1 text-sm text-text-secondary">{entry.school}</p>
         {entry.note && (
-          <Badge tone="accent" className="mt-2">
-            {entry.note}
-          </Badge>
+          <div className="mt-2">
+            <Badge tone="mono">{entry.note}</Badge>
+          </div>
         )}
       </div>
     </div>
   );
 }
 
+function ListCard({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="border-t border-border-subtle pt-5">
+      <h3 className="font-mono text-xs uppercase tracking-widest text-text-meta">
+        {label}
+      </h3>
+      <div className="mt-4">{children}</div>
+    </div>
+  );
+}
+
 export function Education() {
   return (
-    <section id="education" className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <SectionHeader
-          eyebrow="Education & Credentials"
-          title="Degrees, certifications, and wins."
-          description="The formal side of the story."
-        />
+    <section
+      id="education"
+      className="grid grid-cols-1 gap-6 border-b border-border-subtle px-4 py-16 sm:px-8 md:grid-cols-12 md:gap-8 md:py-24"
+    >
+      <div className="md:col-span-3">
+        <Reveal>
+          <p className="font-mono text-xs uppercase tracking-widest text-text-meta">
+            04 / Education
+          </p>
+          <h2 className="mt-3 font-sans text-2xl font-semibold leading-tight tracking-tight text-foreground text-balance md:text-3xl">
+            Degrees, certifications, and wins.
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-text-secondary text-pretty">
+            The formal side of the story.
+          </p>
+        </Reveal>
+      </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2">
-          <Reveal delay={0.1}>
-            <div className="h-full rounded-2xl border border-border bg-surface/60 p-6">
-              <h3 className="font-display text-sm font-medium uppercase tracking-[0.2em] text-foreground/60">
-                Degrees
-              </h3>
-              <Stagger className="mt-5 space-y-6" stagger={0.06}>
-                {education.map((e) => (
-                  <StaggerItem key={`${e.school}-${e.degree}`}>
-                    <DegreeEntry entry={e} />
-                  </StaggerItem>
-                ))}
-              </Stagger>
-            </div>
-          </Reveal>
+      <div className="md:col-span-9">
+        <Reveal>
+          <h3 className="font-mono text-xs uppercase tracking-widest text-text-meta">
+            Degrees
+          </h3>
+          <Stagger className="mt-4 border-t border-border-subtle" stagger={0.05}>
+            {education.map((e) => (
+              <StaggerItem key={`${e.school}-${e.degree}`}>
+                <DegreeRow entry={e} />
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </Reveal>
 
-          <Reveal delay={0.15}>
-            <div className="h-full rounded-2xl border border-border bg-surface/60 p-6">
-              <h3 className="font-display text-sm font-medium uppercase tracking-[0.2em] text-foreground/60">
-                Certifications
-              </h3>
-              <Stagger className="mt-5 space-y-4" stagger={0.04}>
+        <Reveal className="mt-12">
+          <div className="grid gap-10 md:grid-cols-2">
+            <ListCard label="Certifications">
+              <ul className="divide-y divide-border-subtle">
                 {certifications.map((c) => (
-                  <StaggerItem key={c.name}>
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <p className="text-sm font-medium leading-snug text-foreground">
-                          {c.name}
-                        </p>
-                        <p className="text-xs text-foreground/60">
-                          {c.issuer}
-                        </p>
-                      </div>
-                      {c.year && (
-                        <span className="shrink-0 font-accent text-xs italic text-foreground/40">
-                          {c.year}
-                        </span>
-                      )}
-                    </div>
-                  </StaggerItem>
-                ))}
-              </Stagger>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <div className="h-full rounded-2xl border border-border bg-surface/60 p-6">
-              <h3 className="font-display text-sm font-medium uppercase tracking-[0.2em] text-foreground/60">
-                Awards & Fellowships
-              </h3>
-              <Stagger className="mt-5 space-y-4" stagger={0.06}>
-                {awards.map((a) => (
-                  <StaggerItem key={a.title}>
+                  <li
+                    key={c.name}
+                    className="flex items-start justify-between gap-3 py-3"
+                  >
                     <div>
-                      <div className="flex items-start justify-between gap-3">
-                        <p className="text-sm font-medium leading-snug text-foreground">
-                          {a.title}
-                        </p>
-                        {a.year && (
-                          <span className="shrink-0 font-accent text-xs italic text-foreground/40">
-                            {a.year}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-xs text-foreground/60">{a.org}</p>
-                    </div>
-                  </StaggerItem>
-                ))}
-              </Stagger>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.25}>
-            <div className="h-full rounded-2xl border border-border bg-surface/60 p-6">
-              <h3 className="font-display text-sm font-medium uppercase tracking-[0.2em] text-foreground/60">
-                Competitions & Hackathons
-              </h3>
-              <Stagger className="mt-5 space-y-4" stagger={0.06}>
-                {competitions.map((c) => (
-                  <StaggerItem key={`${c.year}-${c.title}`}>
-                    <div>
-                      <div className="flex items-start justify-between gap-3">
-                        <p className="text-sm font-medium leading-snug text-foreground">
-                          {c.title}
-                        </p>
-                        {c.year && (
-                          <span className="shrink-0 font-accent text-xs italic text-foreground/40">
-                            {c.year}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-xs text-foreground/60">
-                        {c.event}
-                        {c.location ? ` · ${c.location}` : ""}
+                      <p className="text-sm font-medium leading-snug text-foreground">
+                        {c.name}
                       </p>
-                      <Badge tone="accent" className="mt-1.5">
-                        {c.place}
-                      </Badge>
+                      <p className="mt-0.5 text-xs text-text-meta">
+                        {c.issuer}
+                      </p>
                     </div>
-                  </StaggerItem>
+                    {c.year && (
+                      <span className="shrink-0 font-mono text-xs text-text-meta">
+                        {c.year}
+                      </span>
+                    )}
+                  </li>
                 ))}
-              </Stagger>
-            </div>
-          </Reveal>
-        </div>
+              </ul>
+            </ListCard>
+
+            <ListCard label="Awards & Fellowships">
+              <ul className="divide-y divide-border-subtle">
+                {awards.map((a) => (
+                  <li
+                    key={a.title}
+                    className="flex items-start justify-between gap-3 py-3"
+                  >
+                    <div>
+                      <p className="text-sm font-medium leading-snug text-foreground">
+                        {a.title}
+                      </p>
+                      <p className="mt-0.5 text-xs text-text-meta">
+                        {a.org}
+                      </p>
+                    </div>
+                    {a.year && (
+                      <span className="shrink-0 font-mono text-xs text-text-meta">
+                        {a.year}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </ListCard>
+
+            <ListCard label="Competitions & Hackathons">
+              <ul className="divide-y divide-border-subtle">
+                {competitions.map((c) => (
+                  <li
+                    key={`${c.year}-${c.title}`}
+                    className="py-3"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <p className="text-sm font-medium leading-snug text-foreground">
+                        {c.title}
+                      </p>
+                      <span className="shrink-0 font-mono text-xs text-text-meta">
+                        {c.year}
+                      </span>
+                    </div>
+                    <p className="mt-1 text-xs text-text-meta">
+                      {c.event}
+                      {c.location ? ` · ${c.location}` : ""}
+                    </p>
+                    <div className="mt-2">
+                      <Badge tone="mono">{c.place}</Badge>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </ListCard>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

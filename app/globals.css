@@ -1,27 +1,43 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5f1ea;
-  --foreground: #1a2332;
-  --muted: #6b7280;
+  --background: #fafaf9;
+  --foreground: #0a0a0a;
+  --muted: #525252;
   --surface: #ffffff;
-  --border: #e5e0d6;
-  --accent: #b8924a;
-  --accent-soft: #d4b87a;
-  --deep: #0f1924;
-  --form-bg: #f0e4c7;
+  --border: #e5e5e5;
+  --accent: #0a0a0a;
+  --deep: #0a0a0a;
+
+  --text-primary: #0a0a0a;
+  --text-secondary: #404040;
+  --text-meta: #525252;
+  --border-subtle: #d4d4d4;
+  --border-strong: #a3a3a3;
+  --hover-surface: rgba(0, 0, 0, 0.04);
+  --chip-bg: #f5f5f5;
+  --chip-border: #e5e5e5;
+  --chip-text: #262626;
 }
 
 .dark {
-  --background: #0f1924;
-  --foreground: #f5f1ea;
-  --muted: #9ca3af;
-  --surface: #1a2332;
-  --border: #2a3445;
-  --accent: #d4b87a;
-  --accent-soft: #b8924a;
-  --deep: #0a1218;
-  --form-bg: #1a2332;
+  --background: #0a0a0a;
+  --foreground: #fafaf9;
+  --muted: #a3a3a3;
+  --surface: #171717;
+  --border: #262626;
+  --accent: #fafaf9;
+  --deep: #0a0a0a;
+
+  --text-primary: #fafaf9;
+  --text-secondary: #d4d4d4;
+  --text-meta: #a3a3a3;
+  --border-subtle: #262626;
+  --border-strong: #404040;
+  --hover-surface: rgba(23, 23, 23, 0.5);
+  --chip-bg: #171717;
+  --chip-border: #262626;
+  --chip-text: #d4d4d4;
 }
 
 @theme inline {
@@ -31,13 +47,20 @@
   --color-surface: var(--surface);
   --color-border: var(--border);
   --color-accent: var(--accent);
-  --color-accent-soft: var(--accent-soft);
   --color-deep: var(--deep);
-  --color-form-bg: var(--form-bg);
 
-  --font-display: var(--font-display);
-  --font-body: var(--font-body);
-  --font-accent: var(--font-accent);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-meta: var(--text-meta);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --color-hover-surface: var(--hover-surface);
+  --color-chip-bg: var(--chip-bg);
+  --color-chip-border: var(--chip-border);
+  --color-chip-text: var(--chip-text);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
 html {
@@ -47,73 +70,28 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-body), system-ui, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--deep);
+  background: var(--foreground);
+  color: var(--background);
 }
 
 @layer utilities {
-  .font-display {
-    font-family: var(--font-display), serif;
+  .font-sans {
+    font-family: var(--font-sans), system-ui, sans-serif;
   }
-  .font-accent {
-    font-family: var(--font-accent), serif;
+  .font-mono {
+    font-family: var(--font-mono), ui-monospace, monospace;
   }
   .text-balance {
     text-wrap: balance;
   }
   .text-pretty {
     text-wrap: pretty;
-  }
-  .grain {
-    position: relative;
-  }
-  .grain::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.03;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-  .timeline-track {
-    position: relative;
-  }
-  .timeline-track::before {
-    content: "";
-    position: absolute;
-    top: 35.25px;
-    left: 36px;
-    right: 36px;
-    height: 1.5px;
-    background: linear-gradient(
-      to right,
-      transparent 0%,
-      var(--foreground) 8%,
-      var(--foreground) 92%,
-      transparent 100%
-    );
-    opacity: 0.22;
-    z-index: 0;
-  }
-  .timeline-rail {
-    position: relative;
-  }
-  .timeline-rail::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 36px;
-    width: 1px;
-    background: var(--border);
-    z-index: 0;
   }
 }

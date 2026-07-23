@@ -22,14 +22,14 @@ export function SectionHeader({
             : "max-w-2xl"
         }
       >
-        <p className="font-accent text-sm uppercase tracking-[0.25em] text-accent md:text-base">
+        <p className="font-mono text-xs uppercase tracking-widest text-text-meta">
           {eyebrow}
         </p>
-        <h2 className="mt-3 font-display text-3xl font-medium leading-tight tracking-tight text-foreground text-balance md:text-4xl lg:text-5xl">
+        <h2 className="mt-3 font-sans text-3xl font-semibold leading-tight tracking-tight text-foreground text-balance md:text-4xl lg:text-5xl">
           {title}
         </h2>
         {description && (
-          <p className="mt-4 text-base leading-relaxed text-foreground/70 text-pretty">
+          <p className="mt-4 text-base leading-relaxed text-text-secondary text-pretty">
             {description}
           </p>
         )}
